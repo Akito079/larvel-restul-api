@@ -26,5 +26,4 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\API\V1','middlew
     Route::apiResource('invoices',InvoiceController::class);
     Route::post('invoices/bulk',[InvoiceController::class,'bulkStore']);
 });
-
 Route::post('/login');

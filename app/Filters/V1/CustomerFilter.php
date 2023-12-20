@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 
 class CustomerFilter extends ApiFilter {
     protected $safeParms = [
-        'name' =>['eq'],
+        'name' =>['eq','like'],
         'type' =>['eq'],
         'email' =>['eq'],
         'address' =>['eq'],
@@ -22,6 +22,7 @@ class CustomerFilter extends ApiFilter {
         'lte' => '<=',
         'gt' => '>',
         'gte' => '>=',
+        'like' => 'LIKE',
     ];
-    
+
 }

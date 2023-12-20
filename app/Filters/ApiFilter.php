@@ -4,7 +4,7 @@ namespace App\Filters;
 
 use Illuminate\Http\Request;
 
-class  ApiFilter
+class ApiFilter
 {
     protected $safeParms = [];
     protected $columnMap = [];
@@ -20,11 +20,11 @@ class  ApiFilter
             $column = $this->columnMap[$parm] ?? $parm;
             foreach ($operators as $operator) {
                 if (isset($query[$operator])) {
-                    $eloQuery[] =  [$column, $this->operatorMap[$operator], $query[$operator]];
+                    $eloQuery[] =  [$column, $this->operatorMap[$operator],$this->operatorMap[$operator]=='LIKE'? '%'.$query[$operator].'%': $query[$operator]];
                 }
             }
         }
         return $eloQuery;
-        // dd($query);
+
     }
 }
